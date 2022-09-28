@@ -52,4 +52,11 @@ class MybatisApplicationTests {
         articles = articleService.search("subject", "2");
         assertThat(articles.size()).isEqualTo(1);
     }
+
+    @Test
+    @DisplayName("게시물 제목 검색")
+    void t5() {
+        List<Article> articles = articleService.search("content", "제목");
+        assertThat(articles.size()).isEqualTo(0);
+    }
 }
