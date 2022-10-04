@@ -13,11 +13,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/article")
+@RequestMapping("/adm/article")
 @RequiredArgsConstructor
 @Slf4j
-public class ArticleController {
+public class AdmArticleController {
     private final ArticleService articleService;
+
     @GetMapping("/list")
     public String showList(Model model) {
         List<Article> articles = articleService.getForPrintArticles();
@@ -26,16 +27,16 @@ public class ArticleController {
 
         model.addAttribute("articles", articles);
 
-        return "article/list";
+        return "adm/article/list";
     }
 
     @GetMapping("/{id}")
     public String showDetail(@PathVariable Long id) {
-        return "article/detail";
+        return "adm/article/detail";
     }
 
     @GetMapping("/write")
     public String showWrite() {
-        return "article/write";
+        return "adm/article/write";
     }
 }
